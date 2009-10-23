@@ -5,6 +5,11 @@ use List::Util 'shuffle';
 
 (my $questions_file) = @ARGV;
 
+if (not -f $questions_file) {
+    print "usage: $0 [questions-file]\n";
+    exit 0;
+}
+
 open QF, "< $questions_file" or die "Unable to open $questions_file!";
 
 my %questions;
