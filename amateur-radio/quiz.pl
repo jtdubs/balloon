@@ -14,10 +14,9 @@ open QF, "< $questions_file" or die "Unable to open $questions_file!";
 
 my %questions;
 while (<QF>) {
-    if (/^(T\w{4})\s+\((\w)\)(\s+(\[.*?\]))?\s*$/) {
+    if (/^([TGE]\w{4})\s+\((\w)\)(\s+(\[.*?\]))?\s*$/) {
         (my $id, my $answer, my $references) = ($1, $2, $4);
 
-        <QF>;
         my $question = "";
         while (<QF>) {
             last if (/^~~\s*$/);
